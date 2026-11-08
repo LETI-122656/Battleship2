@@ -1,0 +1,28 @@
+name: Checkstyle - Method Naming
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  checkstyle:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Download Checkstyle
+        run: |
+          curl -fsSL -o checkstyle.jar https://github.com/checkstyle/checkstyle/releases/download/checkstyle-10.21.4/checkstyle-10.21.4-all.jar
+
+      - name: Check method names
+        run: |
+          java -jar checkstyle.jar -c Checkstyle/checkstyle.xml src/main/java
