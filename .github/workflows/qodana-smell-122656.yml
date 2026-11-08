@@ -1,0 +1,26 @@
+name: Qodana - Long Method - 122656
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  qodana-smell:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Qodana Long Method
+        uses: JetBrains/qodana-action@v2026.1
+        with:
+          pr-mode: false
+          args: --config,qodana-122656.yaml
+        env:
+          QODANA_TOKEN: ${{ secrets.QODANA_TOKEN_1115801162 }}
+          QODANA_ENDPOINT: https://qodana.cloud
