@@ -2,7 +2,7 @@ package battleship;
 
 public class CheckstyleTest {
 
-    public void Metodo_Invalido() {
+    public void metodoValido() {
         System.out.println("Teste Checkstyle");
     }
 }
