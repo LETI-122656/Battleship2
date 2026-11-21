@@ -122,13 +122,44 @@ graph TD
 ---
 
 ## 🧪 Testing
-We use high-coverage unit testing to ensure game stability. Run tests using:
+
+Unit tests are implemented using JUnit 5 and Mockito.
+
+Run all tests using:
+
 ```bash
 mvn test
 ```
 
 > [!TIP]
 > Use the `-Dtest=ClassName` flag to run specific test suites during development.
+
+### Laboratory Assignment 4 — Unit Testing
+
+Student: 122656
+
+| Class | Tests | Method Coverage | Line Coverage | Branch Coverage |
+|---|---:|---:|---:|---:|
+| Move | 22 | 100% | 98% | 98% |
+| Tasks | 17 | 71% | 41% | 21% |
+| Game | 22 | 91% | 71% | 51% |
+
+Full test suite results:
+
+- Tests: 186
+- Failures: 0
+- Errors: 0
+- Skipped: 0
+- Build: SUCCESS
+
+### Coverage Report
+
+[HTML Coverage Report — LETI-122656](reports/122656/index.html)
+
+### Continuous Integration
+
+GitHub Actions automatically builds the project and runs
+JUnit tests on pushes and pull requests targeting the main branch.
 
 ---
 
