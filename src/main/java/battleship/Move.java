@@ -15,7 +15,8 @@ import java.util.*;
  */
 public class Move implements IMove {
 
-	//-------------------------------------------------------------------
+    private static final String BOAT_TYPE_KEY = "type";
+    //-------------------------------------------------------------------
 	private final int number;
 	private final List<IPosition> shots;
 	private final List<IGame.ShotResult> shotResults;
@@ -111,7 +112,7 @@ public class Move implements IMove {
 		List<Map<String, Object>> sunkBoats = new ArrayList<>();
 		for (Map.Entry<String, Integer> entry : sunkBoatsCount.entrySet()) {
 			Map<String, Object> boat = new HashMap<>();
-			boat.put("type", entry.getKey());
+			boat.put(BOAT_TYPE_KEY, entry.getKey());
 			boat.put("count", entry.getValue());
 			sunkBoats.add(boat);
 		}
@@ -122,7 +123,7 @@ public class Move implements IMove {
 		for (Map.Entry<String, Integer> entry : hitsPerBoat.entrySet()) {
 			if (!sunkBoatsCount.containsKey(entry.getKey())) {
 				Map<String, Object> boat = new HashMap<>();
-				boat.put("type", entry.getKey());
+				boat.put(BOAT_TYPE_KEY, entry.getKey());
 				boat.put("hits", entry.getValue());
 				boatHits.add(boat);
 			}
